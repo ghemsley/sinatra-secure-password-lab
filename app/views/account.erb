@@ -1,5 +1,19 @@
 <h1>Welcome</h1>
-
 <p>We are currently working on your account.</p>
+<h2>Username: <%= @user.username %></h2>
+<h3>Balance: $<%= @user.balance %></h3>
+<form action='/account' method='POST'>
+  <div style='display: flex; flex-direction: column; flex-wrap: nowrap; max-width: min-content;'>
+    <label>
+      Deposit:
+      <input type='number' min='0' name='deposit' step='0.01' style='width: 4em;'>
+    </label>
+    <label>
+      Withdraw:
+      <input type='number' min='0' name='withdraw' step='0.01' max='<%= @user.balance %>' style='width: 4em;'>
+    </label>
+    <input type='submit' value='Submit'>
+  </div>
+</form>
 
 <p><a href="/logout">Log Out</a></p>
